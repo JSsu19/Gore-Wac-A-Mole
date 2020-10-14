@@ -23,6 +23,7 @@ public class spel : MonoBehaviour
     public Text skortext;
     public AudioSource musik;
     public AudioSource ljud;
+    public HealthBar hb;
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +109,7 @@ public class spel : MonoBehaviour
                 }
                 else
                 {
+                    hb.TakeDamage(1);
                     liv--;
                     print("miss");
                 }
