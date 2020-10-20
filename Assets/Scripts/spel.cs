@@ -14,7 +14,7 @@ public class spel : MonoBehaviour
     public float range;
     public Camera camera;
     public int score;
-    public int maxHealth = 5;
+    public int maxHealth = 3;
     public int currentHealth;
     public float x;
     public GameObject loseScreen;
