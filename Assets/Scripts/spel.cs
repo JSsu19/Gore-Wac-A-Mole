@@ -14,7 +14,8 @@ public class spel : MonoBehaviour
     public float range;
     public Camera camera;
     public int score;
-    public int liv;
+    public int maxHealth = 5;
+    public int currentHealth;
     public float x;
     public GameObject loseScreen;
     public float poängtime = 5;
@@ -23,7 +24,6 @@ public class spel : MonoBehaviour
     public Text skortext;
     public AudioSource musik;
     public AudioSource ljud;
-    public HealthBar hb;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class spel : MonoBehaviour
         ljud = GetComponent<AudioSource>();
         helst = new GameObject();
         loseScreen.SetActive(false);
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -60,7 +61,7 @@ public class spel : MonoBehaviour
         {
             helst.transform.position = new Vector3(transform.position.x, 0, 0);
         }
-        if (liv <= 0)
+        if (currentHealth <= 0)
         {
             musik.Stop();
             ljud.PlayOneShot(ljud.clip);
@@ -109,8 +110,7 @@ public class spel : MonoBehaviour
                 }
                 else
                 {
-                    hb.TakeDamage(1);
-                    liv--;
+                    TakeDamage(1);
                     print("miss");
                 }
             }
@@ -120,5 +120,9 @@ public class spel : MonoBehaviour
         {
             poängtime -= Time.deltaTime;
         }
+    }
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
     }
 }

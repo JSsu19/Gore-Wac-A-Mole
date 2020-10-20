@@ -720,7 +720,8 @@ MonoBehaviour:
   range: 2
   camera: {fileID: 963194227}
   score: 0
-  liv: 3
+  maxHealth: 3
+  currentHealth: 0
   x: 0
   loseScreen: {fileID: 135930455}
   "po\xE4ngtime": 0
@@ -729,7 +730,6 @@ MonoBehaviour:
   skortext: {fileID: 248346952}
   musik: {fileID: 963194229}
   ljud: {fileID: 963194229}
-  hb: {fileID: 841624998}
 --- !u!82 &841624997
 AudioSource:
   m_ObjectHideFlags: 0
