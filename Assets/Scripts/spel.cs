@@ -24,6 +24,7 @@ public class spel : MonoBehaviour
     public Text skortext;
     public AudioSource musik;
     public AudioSource ljud;
+    public int damage = 1;
 
     // Start is called before the first frame update
     void Start()
