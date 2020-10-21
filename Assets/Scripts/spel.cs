@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class spel : MonoBehaviour
 {
+    [SerializeField]
+    private HealthBar healthBar;
+
     public GameObject[] mulls;
     public Transform[] spawns;
     public bool[] full;
@@ -14,8 +17,7 @@ public class spel : MonoBehaviour
     public float range;
     public Camera camera;
     public int score;
-    public int maxHealth = 3;
-    public int currentHealth;
+
     public float x;
     public GameObject loseScreen;
     public float poängtime = 5;
@@ -24,6 +26,7 @@ public class spel : MonoBehaviour
     public Text skortext;
     public AudioSource musik;
     public AudioSource ljud;
+
     public int damage = 1;
 
     // Start is called before the first frame update
@@ -32,7 +35,6 @@ public class spel : MonoBehaviour
         ljud = GetComponent<AudioSource>();
         helst = new GameObject();
         loseScreen.SetActive(false);
-        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -62,26 +64,21 @@ public class spel : MonoBehaviour
         {
             helst.transform.position = new Vector3(transform.position.x, 0, 0);
         }
-        if (currentHealth <= 0)
+
+        if (healthBar.currentHealth <= 0)
         {
-            musik.Stop();
-            ljud.PlayOneShot(ljud.clip);
-            Time.timeScale = 0;
-            print("haha du förlorade!!!!?!");
-            loseScreen.SetActive(true);
+            Die();
         }
-        print("hundra: " + score % 100);
-        print("tio: " + score % 10);
-        print("ett: " + score % 1);
-        helst.transform.position += new Vector3(1, 1, 0) * Time.deltaTime;
+
         if (Input.GetMouseButtonDown(0)) //Du klickar en knapp
         {
             var v3 = Input.mousePosition;
             v3.z = 10.0f;
             v3 = Camera.main.ScreenToWorldPoint(v3);
-            print(Vector3.Distance(nymull.transform.position, v3));
-            for (int i = 0; i < spawns.Length; i++)
+
+            for (int i = 0; i < 1; i++)
             {
+ 
                 if (Vector3.Distance(nymull.transform.position, v3) < range)
                 {
                     ljud.PlayOneShot(ljud.clip);
@@ -111,7 +108,7 @@ public class spel : MonoBehaviour
                 }
                 else
                 {
-                    TakeDamage(1);
+                    healthBar.TakeDamage(1);
                     print("miss");
                 }
             }
@@ -122,8 +119,13 @@ public class spel : MonoBehaviour
             poängtime -= Time.deltaTime;
         }
     }
-    void TakeDamage(int damage)
+
+    private void Die()
     {
-        currentHealth -= damage;
+        musik.Stop();
+        ljud.PlayOneShot(ljud.clip);
+        Time.timeScale = 0;
+        print("haha du förlorade!!!!?!");
+        loseScreen.SetActive(true);
     }
 }
