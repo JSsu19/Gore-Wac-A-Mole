@@ -44,7 +44,7 @@ public class spel : MonoBehaviour
         x += Time.deltaTime;
         skortext.text = (string)score.ToString();
         timer += Time.deltaTime;
-        if (timer > Random.Range(10, 50)) 
+        if (timer > Random.Range(1, 8)) 
         {
             print("skapa mullvad");
             timer = 0;
