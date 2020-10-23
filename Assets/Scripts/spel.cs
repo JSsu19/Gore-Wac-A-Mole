@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class spel : MonoBehaviour
 {
@@ -120,6 +121,11 @@ public class spel : MonoBehaviour
         }
     }
 
+
+    
+
+
+
     private void Die()
     {
         musik.Stop();
@@ -127,5 +133,7 @@ public class spel : MonoBehaviour
         Time.timeScale = 0;
         print("haha du förlorade!!!!?!");
         loseScreen.SetActive(true);
+       
+
     }
 }
