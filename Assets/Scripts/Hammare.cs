@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hammare : MonoBehaviour
 {
+    Rigidbody bonk;
+
     [SerializeField] [Range(1, 100)] float xrange;
     [SerializeField] [Range(1, 100)] float zrange;
 
