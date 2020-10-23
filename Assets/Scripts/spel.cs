@@ -129,7 +129,6 @@ public class spel : MonoBehaviour
     private void Die()
     {
         musik.Stop();
-        ljud.PlayOneShot(ljud.clip);
         Time.timeScale = 0;
         print("haha du förlorade!!!!?!");
         loseScreen.SetActive(true);
