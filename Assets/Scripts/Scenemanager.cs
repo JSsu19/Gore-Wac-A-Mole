@@ -7,17 +7,22 @@ public class Scenemanager: MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Detta gör så att den laddar nästa scen i sceneindex
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); //Detta gör så att den laddar nästa scen i sceneindex
     }
 
     public void LoadOptions()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 
-    public void GoBack()
+    public void GoBackSettings()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void GoBackGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
     public void QuitGame()
