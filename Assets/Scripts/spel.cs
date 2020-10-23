@@ -27,7 +27,7 @@ public class spel : MonoBehaviour
     public AudioSource musik;
     public AudioSource ljud;
 
-    public int damage = 1;
+    public int damage = 1; // Sätter hur mycket skada man tar för varje gång.
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class spel : MonoBehaviour
             helst.transform.position = new Vector3(transform.position.x, 0, 0);
         }
 
-        if (healthBar.currentHealth <= 0)
+        if (healthBar.currentHealth <= 0) // Sätter igång dödsfunktionen om hälsan går till 0.
         {
             Die();
         }
@@ -108,7 +108,7 @@ public class spel : MonoBehaviour
                 }
                 else
                 {
-                    healthBar.TakeDamage(1);
+                    healthBar.TakeDamage(1); // Tar damage.
                     print("miss");
                 }
             }
